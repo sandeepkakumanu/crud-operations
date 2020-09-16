@@ -1,0 +1,40 @@
+
+<form [formGroup] ="myform" (ngSubmit)="Createemp()" >
+    <div>
+      <label>Name :</label><input type="text" name="empname" formControlName="empName">
+    </div><br>
+    <div >
+      <label>Gender</label>
+      <input type="radio" value="male"  formControlName="gender"><label>Male</label>
+      <input type="radio" value="female"  formControlName="gender"><label>FeMale</label>
+    </div><br>
+     <label>Department</label>
+    <select formControlName="department"></select> 
+ <div>
+   <label>Salary : </label><input type="text" name="salary" formControlName="salary">
+   </div>
+ <button type='submit'>{{btntxt}}</button>
+</form>
+ <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Ename</th>
+      <th>Gender</th>
+      <!-- <th>Department</th> -->
+      <th>salary</th>
+      <th>EDIT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let emp of data">
+      <td>{{emp.id}}</td>
+      <td>{{emp.empName}}</td>
+      <td>{{emp.gender | settinggender}}</td>
+      <!-- <td>{{emp.department}}</td> -->
+      <td>{{emp.salary}}</td>
+      <td><input type="button" (click)="EditEmployee(emp)" value='Edit'/></td>
+    </tr>
+    
+  </tbody>
+</table>
